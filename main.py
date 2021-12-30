@@ -69,7 +69,11 @@ if __name__ == '__main__':
 	print("Please don't quit this console,if you want to use Ftp Server")
 	# 使用当前的工作目录
 	args = cmd.parse_args()
-	args.f += "\\FtpServer.ini"
-	print(args.f)
+	
+	if platform.platform().find("Linux") == 0 or platform.platform().find("linux") == 0: #简单做一个平台的兼容性的判断
+		args.f += "/FtpServer.ini"
+	else:
+		args.f += "\\FtpServer.ini"
+	
 	config = Config(args.f)
 	FtpServer(config)
