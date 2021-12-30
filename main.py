@@ -3,6 +3,7 @@ import os
 import logging
 import configparser
 import signal
+import platform
 
 from pyftpdlib.authorizers import DummyAuthorizer
 from pyftpdlib.handlers import FTPHandler
